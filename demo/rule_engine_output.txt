@@ -1,0 +1,63 @@
+************
+Sentient Risk Assessment
+************
+Transaction ID : TXN000000000096
+
+Risk Factors
+--------
+Transaction Intelligence
+--------
+Amount                : ₹779.34
+Amount Score          : 20
+Time Score            : 10
+MCC Score             : 10
+--------
+Behaviour Intelligence
+--------
+Response Score        : 0
+Velocity Count Score  : 10
+Velocity Amount Score : 10
+Failure Rate Score    : 10
+Amount Average Score  : 0
+Active Hours Score    : 0
+Hourly Txn Pattern Score : 0
+Dormant Merchant Score   : 100
+Daily volume Spike Score : 0
+--------
+Device Intelligence
+--------
+Device Risk Score        : 10
+Device Rooted Score      : 10
+Device Integrity Score   : 10
+--------
+Merchant Intelligence
+--------
+Merchant Age Score       : 10
+Merchant Risk Tier Score : 10
+ATS Limit Score          : 10
+--------
+Overall Score  : 130
+Risk Level     : High
+Decision       : REJECT
+--------
+Reasoning
+--------
+> Amount is between ₹500 & ₹2,000
+> Time under ordinary business hours from 6am to 10pm
+> Merchant Category: Grocery Stores
+> Response Code - 00 - Success
+> Merchant processed 1 transaction(s)in the last 10 mins
+> Merchant processed ₹779.34 in last 10 mins
+> Merchant processed 1 transaction(s) in the last 10 mins, which is too few to assess failure rate.
+> Insufficient merchant history to calculate average ticket size. Only 1 transaction(s) found in last 7 days.
+> Insufficient merchant history to establish normal operating hours. Only 1 transaction(s) found in last 180 days.
+> Insufficient merchant history to establish hourly txn pattern. Average txn count in this hour over last 180 days: 1.00. 
+> No previous transaction found within the last 180 days
+> Insufficient merchant history. Only 1 active day(s) found.
+> Device Trust Score = 95 (Risk Contribution = 10)
+> The device rooted flag is No (Risk Contribution = (+10)
+> The device integrity flag is PASS (Risk Contribution = (+10)
+> Merchant age: 558. Established merchant.
+> Merchant risk tier: Low.
+> Merchant decalred ATS is 650. Transaction ticket size is  1.20 X of declared ATS
+========================================

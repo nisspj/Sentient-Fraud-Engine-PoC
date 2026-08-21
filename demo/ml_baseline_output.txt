@@ -1,0 +1,36 @@
+(riskengine) PS D:\RiskEngine> uv run -m feature_engineering.model_training
+Encoded categorical shape: (5000, 598)
+Confusion Matrix:
+[[724 229]
+ [ 33  14]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.76      0.85       953
+           1       0.06      0.30      0.10        47
+
+    accuracy                           0.74      1000
+   macro avg       0.51      0.53      0.47      1000
+weighted avg       0.91      0.74      0.81      1000
+
+
+ROC-AUC:
+0.530262776004108
+
+
+Interpretation
+--------------
+This is an early Logistic Regression baseline trained on synthetic transaction data.
+The current synthetic fraud generation is dominated by high-value fraud, so the baseline
+is intentionally treated as a diagnostic PoC rather than production-level model performance.
+
+Current fraud-class recall: 30%
+Current ROC-AUC: 0.5303
+
+Next ML milestones:
+- diversify synthetic fraud scenarios
+- improve behavioural signal generation
+- retrain and compare models
+- optimize decision thresholds
+- add explainability / SHAP
