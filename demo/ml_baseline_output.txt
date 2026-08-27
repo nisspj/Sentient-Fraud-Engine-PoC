@@ -1,40 +1,6 @@
 (riskengine) PS D:\RiskEngine> uv run -m feature_engineering.model_training
 Final X shape: (50000, 55)
 y shape: (50000,)
-
-Precision-Recall operating points:
-Recall >= 90%: threshold=0.2095, precision=0.0649
-Recall >= 80%: threshold=0.3358, precision=0.0945
-Recall >= 70%: threshold=0.4676, precision=0.1433
-Recall >= 60%: threshold=0.6720, precision=0.3077
-Recall >= 50%: threshold=0.7968, precision=0.4860
-
-
-PR-AUC:
-0.5014772300233707
-
-ROC-AUC:
-0.8557365182122239
-
-5-Fold Stratified Cross-Validation:
-Fold 1: 0.9160
-Fold 2: 0.9124
-Fold 3: 0.9006
-Fold 4: 0.9098
-Fold 5: 0.8924
-Mean ROC-AUC: 0.9063
-Std ROC-AUC : 0.0086
-
-5-Fold Stratified Cross-Validation — PR-AUC:
-Fold 1: 0.5849
-Fold 2: 0.5852
-Fold 3: 0.5702
-Fold 4: 0.5644
-Fold 5: 0.5444
-Mean PR-AUC: 0.5698
-Std PR-AUC : 0.0151
-
-
 Confusion Matrix:
 [[8420 1234]
  [ 108  238]]
@@ -50,4 +16,24 @@ Classification Report:
 weighted avg       0.96      0.87      0.90     10000
 
 
+ROC-AUC:
+0.8557365182122239
 
+PR-AUC:
+0.5014772300233707
+
+Precision-Recall operating points:
+Recall >= 90%: threshold=0.2095, precision=0.0649
+Recall >= 80%: threshold=0.3358, precision=0.0945
+Recall >= 70%: threshold=0.4676, precision=0.1433
+Recall >= 60%: threshold=0.6720, precision=0.3077
+Recall >= 50%: threshold=0.7968, precision=0.4860
+
+5-Fold Stratified Cross-Validation:
+Fold 1: 0.9160
+Fold 2: 0.9124
+Fold 3: 0.9006
+Fold 4: 0.9098
+Fold 5: 0.8924
+Mean ROC-AUC: 0.9063
+Std ROC-AUC : 0.0086
