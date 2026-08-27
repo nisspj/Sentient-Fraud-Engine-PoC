@@ -9,6 +9,13 @@ Recall >= 70%: threshold=0.4676, precision=0.1433
 Recall >= 60%: threshold=0.6720, precision=0.3077
 Recall >= 50%: threshold=0.7968, precision=0.4860
 
+
+PR-AUC:
+0.5014772300233707
+
+ROC-AUC:
+0.8557365182122239
+
 5-Fold Stratified Cross-Validation:
 Fold 1: 0.9160
 Fold 2: 0.9124
@@ -27,8 +34,7 @@ Fold 5: 0.5444
 Mean PR-AUC: 0.5698
 Std PR-AUC : 0.0151
 
-PR-AUC:
-0.5014772300233707
+
 Confusion Matrix:
 [[8420 1234]
  [ 108  238]]
@@ -44,5 +50,4 @@ Classification Report:
 weighted avg       0.96      0.87      0.90     10000
 
 
-ROC-AUC:
-0.8557365182122239
+
