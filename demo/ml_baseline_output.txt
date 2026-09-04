@@ -1,36 +1,47 @@
-(riskengine) PS D:\RiskEngine> uv run -m feature_engineering.model_training
-Encoded categorical shape: (5000, 598)
-Confusion Matrix:
-[[724 229]
- [ 33  14]]
 
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.96      0.76      0.85       953
-           1       0.06      0.30      0.10        47
-
-    accuracy                           0.74      1000
-   macro avg       0.51      0.53      0.47      1000
-weighted avg       0.91      0.74      0.81      1000
+Model Progression
+Model 	Fraud Probability
+Logistic Regression 	5.3867%
+Random Forest 	2.0000%
+Calibrated Boosting 	0.5702% 
 
 
-ROC-AUC:
-0.530262776004108
+Fraud Decision
+0.57%
+LOW
 
 
-Interpretation
---------------
-This is an early Logistic Regression baseline trained on synthetic transaction data.
-The current synthetic fraud generation is dominated by high-value fraud, so the baseline
-is intentionally treated as a diagnostic PoC rather than production-level model performance.
+{
+  "fraud_probability": 0.005702,
+  "risk_band": "LOW",
+  "action": "APPROVE",
+  "rag": {
+    "answer": "**Transaction facts (as reported)**  \n- Transaction amount: 0.0  \n- Transaction velocity: 0.0  \n- Amount velocity: 0.0  \n- Device trust: 0.0  \n- Rooted device: *string*  \n- Device integrity: *string*  \n- Dormancy days: 0.0  \n- Merchant risk tier: *string*  \n\n**Fraud patterns identified from the provided knowledge**\n\n| Pattern | Triggering signal in the transaction | Reason it is relevant (knowledge‑supported) |\n|---------|--------------------------------------|-------------------------------------------|\n| **Merchant Risk** | `Merchant risk tier` is present (value *string*) | The knowledge states that “merchant risk tier, merchant category, merchant size and merchant history can provide contextual signals for fraud detection.” The presence of a merchant risk tier signal is therefore a relevant factor to consider. |\n| **Device Trust and Device Integrity** | `Rooted device` is present (value *string*); `Device integrity` is present (value *string*) | The knowledge indicates that “signals such as rooted devices, failed device integrity checks and historically low device trust can contribute to a fraud risk assessment.” Thus the presence of rooted‑device and integrity signals is relevant. |\n| **Fraud Transaction Velocity** | `Transaction velocity` = 0.0; `Amount velocity` = 0.0 | The pattern definition refers to a “sudden increase in transaction frequency over a short period.” The transaction reports zero velocity, so while the velocity signals are present, the knowledge does not provide a threshold or indication that this constitutes a high‑velocity situation. Therefore the pattern is noted but cannot be claimed to be triggered based on the supplied data. |\n\n**Notes on interpretation**\n\n- The knowledge does not specify thresholds or numeric ranges that would qualify the values 0.0 or the string indicators as high, low, or risky.  \n- No inference is made about whether the transaction is fraudulent; only the presence of signals that are covered by the fraud knowledge is noted.  \n- For the velocity signals, the knowledge states that high velocity “does not by itself prove fraud” and must be considered with other signals; with the current data there is insufficient information to determine a high‑velocity condition.",
+    "evidence": [
+      {
+        "chunk": "Merchant Risk\nMerchant characteristics can influence transaction fraud risk. 
+        Merchant risk tier, merchant category, merchant size and merchant history can provide contextual 
+        signals for fraud detection.\nA high-risk merchant classification does not automatically indicate that a 
+        transaction is fraudulent. Merchant intelligence should be combined with customer, device and transaction behaviour.",
+        "score": 0.7264436483383179
+      },
+      {
+        "chunk": "Fraud Transaction Velocity\nA sudden increase in transaction frequency over a short period can be 
+        an indicator of fraudulent activity. Velocity analysis examines transaction counts and transaction amounts over 
+        defined time windows.\nHigh transaction velocity does not by itself prove fraud. It should be evaluated together 
+        with other signals such as device trust, merchant risk, transaction amount, account history and transaction timing.",
+        "score": 0.6275155544281006
+      },
+      {
+        "chunk": "Device Trust and Device Integrity\nTransactions originating from devices with low trust 
+        or compromised device integrity can present elevated fraud risk.\nSignals such as rooted devices, 
+        failed device integrity checks and historically low device trust can contribute to a fraud risk assessment. 
+        Device signals should be combined with behavioural and transactional signals rather than used as standalone 
+        fraud decisions.",
+        "score": 0.5802558064460754
+      }
+    ]
+  }
+}
 
-Current fraud-class recall: 30%
-Current ROC-AUC: 0.5303
-
-Next ML milestones:
-- diversify synthetic fraud scenarios
-- improve behavioural signal generation
-- retrain and compare models
-- optimize decision thresholds
-- add explainability / SHAP
+Response headers

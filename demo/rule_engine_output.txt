@@ -61,3 +61,28 @@ Reasoning
 > Merchant risk tier: Low.
 > Merchant decalred ATS is 650. Transaction ticket size is  1.20 X of declared ATS
 ========================================
+
+
+WEIGHTED RESULT - 
+************
+Sentient Risk Assessment
+************
+Transaction ID : TXN000000000006
+
+Risk Factors
+--------
+Amount                : ₹2616.53
+--------
+Transaction Risk: 24.07
+--------
+Behavioural Risk: 14.53
+--------
+Device Risk: 30.00
+--------
+Merchant Risk: 33.33
+--------
+Overall Score     : 305
+Normalized Score  : 20.76
+Risk Level        : Low
+Decision          : ALLOW
+========
